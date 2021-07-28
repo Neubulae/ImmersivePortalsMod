@@ -70,6 +70,7 @@ public class ModEntryClient implements ClientModInitializer {
     
     private static boolean checked = false;
     
+    
     private static void initWarnings() {
         ModMain.postClientTickSignal.connect(() -> {
             if (MinecraftClient.getInstance().world == null) {
