@@ -64,27 +64,6 @@ public class ModEntryClient implements ClientModInitializer {
         
         initPortalRenderers();
         
-        SodiumInterface.isSodiumPresent =
-            FabricLoader.getInstance().isModLoaded("sodium");
-        if (SodiumInterface.isSodiumPresent) {
-            Helper.log("Sodium is present");
-            
-            try {
-                Class.forName("me.jellysquid.mods.sodium.client.SodiumHooks");
-            }
-            catch (ClassNotFoundException e) {
-                e.printStackTrace();
-                throw new RuntimeException("The sodium version that you use" +
-                    " is incompatible with Immersive Portals. Check https://github.com/qouteall/sodium-fabric/releases"
-                );
-            }
-            
-            SodiumInterfaceInitializer.init();
-        }
-        else {
-            Helper.log("Sodium is not present");
-        }
-        
         initWarnings();
     }
     
